@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 
 })
 export class AppComponent {
+// <<<<<<< Maarten
   title = 'meetricks';
 
   openPagina :string =" ";
@@ -38,6 +39,11 @@ export class AppComponent {
       this.divHidden = true;
     }
     
+  active = "welcome";
+  activate(x:any){
+    console.log(x)
+    this.active = x;
+// >>>>>>> master
   }
 }
 

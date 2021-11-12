@@ -1,3 +1,4 @@
+<!-- <<<<<<< Maarten -->
 <app-navbar (naarBoven)="leesIn($event)"></app-navbar>
 <meetings [hidden]= "meetingsHidden"></meetings>
 <members [hidden]="membersHidden" ></members>
@@ -5,3 +6,9 @@
 <div [hidden] = "divHidden" style="margin-top: 25px;">
 Meetrix, de pagina voor al uw vergaderingen samen te vatten.
 </div>
+=======
+<menu (active)="activate($event)"></menu>
+<div id="welcome" *ngIf="active == 'welcome'">welcome!</div>
+<div id="members" *ngIf="active == 'members'">member list:</div>
+<div id="meetings" *ngIf="active == 'meetings'">meeting list:</div>
+<!-- >>>>>>> master -->

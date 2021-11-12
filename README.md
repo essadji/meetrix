@@ -1,6 +1,7 @@
 # Meetrix
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+Its initial intention is to develop and provide a tool to follow-up meetings.
 
 ## Development server
 
