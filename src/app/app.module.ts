@@ -17,16 +17,13 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
-// <<<<<<< Maarten
     NavbarComponent,
     MembersComponent,
     MeetingsComponent,
     TopicsComponent,
     TopicComponent,
-    MemberComponent
-// =======
+    MemberComponent,
     MenuComponent
-// >>>>>>> master
   ],
   imports: [
     BrowserModule,

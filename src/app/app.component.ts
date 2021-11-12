@@ -38,7 +38,7 @@ export class AppComponent {
       this.meetingsHidden= false;
       this.divHidden = true;
     }
-    
+  }
   active = "welcome";
   activate(x:any){
     console.log(x)
