@@ -1,0 +1,31 @@
+<table >
+    <tr>
+        <td>NAAM</td>
+        <td>KLEUR</td>
+    </tr>
+</table><br>
+
+topic:  {{topicsService.topicList[1].color}};
+topicList: {{topicList}};
+*ngFor="test:"{{topicsService.topicList|json}};
+topicsService.getItem();
+<br>
+<table class="addTable">
+    <thead>add topic</thead>
+    <tr>
+    <td>
+        naam:
+    </td>    
+    <td>
+        <input type="text" #inputTopic>
+    </td>
+    </tr>
+    <tr>
+        <td>kleur:</td>
+        <td><input type="text" #inputColor></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button (click)="addTopic(inputTopic.value, inputColor.value)">add</button></td>
+    </tr>
+</table>
+<!--<topic [topicName]='topicsService.topicName' [topicColor]='topicsService.topicColor'></topic>-->
