@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'meetrix';
+  active = "welcome";
+  activate(x:any){
+    console.log(x)
+    this.active = x;
+  }
 }
