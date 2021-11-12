@@ -12,11 +12,10 @@ export class TopicsComponent implements OnInit {
 
   topicList:object[]=[];
   ngOnInit(): void {
-    this.topicsService.getItem();
     
   }
 
   addTopic(x:string, y:string){
-     this.topicsService.topicList.push({"id":11,"name":x,"color":y});
+     this.topicsService.topicList.push({"name":x,"color":y});
    }
 }

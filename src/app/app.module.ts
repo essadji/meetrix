@@ -12,6 +12,7 @@ import { TopicComponent } from './topic/topic.component';
 import { MemberComponent } from './member/member.component';
 
 import { MenuComponent } from './menu/menu.component';
+import { MeetingComponent } from './meeting/meeting.component';
 // >>>>>>> master
 
 @NgModule({
@@ -23,9 +24,10 @@ import { MenuComponent } from './menu/menu.component';
     MeetingsComponent,
     TopicsComponent,
     TopicComponent,
-    MemberComponent
+    MemberComponent,
+    MeetingComponent
 // =======
-    MenuComponent
+    
 // >>>>>>> master
   ],
   imports: [

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MeetingServiceService } from '../meeting-service.service';
 
 @Component({
-  selector: 'meetings',
-  templateUrl: './meetings.component.html',
-  styleUrls: ['./meetings.component.css']
+  selector: 'app-meeting',
+  templateUrl: './meeting.component.html',
+  styleUrls: ['./meeting.component.scss']
 })
-export class MeetingsComponent implements OnInit {
+export class MeetingComponent implements OnInit {
 
   constructor(public meetingService:MeetingServiceService) { }
 

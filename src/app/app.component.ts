@@ -39,10 +39,6 @@ export class AppComponent {
       this.divHidden = true;
     }
     
-  active = "welcome";
-  activate(x:any){
-    console.log(x)
-    this.active = x;
 // >>>>>>> master
   }
 }

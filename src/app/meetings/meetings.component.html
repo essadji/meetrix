@@ -1,2 +1,17 @@
-<p>meetings works!</p>
-hahaha
+<table border="1">
+    <tr>
+        <td>Datum:</td>
+        <td>Naam:</td>
+        <td>deelnemers:</td>
+    </tr>
+    <tr *ngFor= "let meeting of meetingService.meetingList">
+        <td>{{meeting.date}}</td>
+        <td>{{meeting.name}}</td>
+        <td >
+            <div *ngFor="let attendee of meeting.attendees"> 
+                {{attendee}}
+            </div>
+        </td>
+        
+    </tr>
+</table>
