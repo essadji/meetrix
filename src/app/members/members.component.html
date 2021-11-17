@@ -2,25 +2,27 @@
     <tr>
         <td>Number</td>
         <td>Name</td>
-        <td>else</td>
+    </tr>
+    <tr>
+        <member *ngFor="let member of memberService.memberList" [memberName]='member.name'
+            [memberNumber]='member.number'></member>
     </tr>
 </table>
 <table class="addTable">
     <thead>add member</thead>
     <tr>
-    <td>
-        nummer:
-    </td>    
-    <td>
-        <input type="text" #inputNumber>
-    </td>
+        <td>
+            nummer:
+        </td>
+        <td>
+            <input type="text" #inputNumber>
+        </td>
     </tr>
     <tr>
         <td>naam:</td>
         <td><input type="text" #inputName></td>
     </tr>
     <tr>
-     <!--   <td colspan="2"><button (click)="addTopic(inputNumber.value, inputName.value)">add</button></td>-->
+        <td colspan="2"><button (click)="addTopic(inputNumber.value, inputName.value)">add</button></td>
     </tr>
 </table>
-<member [memberName]="'Maarten'" [memberNumber]="'r08428'"></member>

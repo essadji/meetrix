@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MembersServiceService } from '../members-service.service';
 
 @Component({
   selector: 'members',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MembersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public memberService: MembersServiceService) { }
 
   ngOnInit(): void {
   }
-
+  addTopic(x: string, y: string) {
+    this.memberService.memberList.push({ "number": x, "name": y });
+  }
 }
