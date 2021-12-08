@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// <<<<<<< Maarten
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { MembersComponent } from './members/members.component';
 import { MeetingsComponent } from './meetings/meetings.component';
@@ -12,7 +12,9 @@ import { TopicComponent } from './topic/topic.component';
 import { MemberComponent } from './member/member.component';
 
 import { MenuComponent } from './menu/menu.component';
-// >>>>>>> master
+
+import { HttpClientModule } from '@angular/common/http'; // IMPORTANT !!!
+import { WebComponent } from './web/web.component'; 
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { MenuComponent } from './menu/menu.component';
     TopicsComponent,
     TopicComponent,
     MemberComponent,
-    MenuComponent
+    MenuComponent,
+    WebComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    // AppRoutingModule
+    HttpClientModule  // ALSO IMPORTANT !!!
   ],
   providers: [],
   bootstrap: [AppComponent]
