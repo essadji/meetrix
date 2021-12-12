@@ -1,17 +1,28 @@
+<app-navbar (naarBoven)="go($event)" [active]="active"></app-navbar>
+<div class="container">
 
-<app-navbar (naarBoven)="leesIn($event)"></app-navbar>
-<meetings [hidden]= "meetingsHidden"></meetings>
-<members [hidden]="membersHidden" ></members>
-<topics [hidden] ="topicsHidden"></topics>
-<div [hidden] = "divHidden" style="margin-top: 25px;">
-Meetrix, de pagina voor al uw vergaderingen samen te vatten.
-</div>
-<hr>
-<menu (active)="activate($event)"></menu>
-<div id="welcome" *ngIf="active == 'welcome'">welcome!</div><br>
-<div id="members" *ngIf="active == 'members'">member list:</div>
-<div id="meetings" *ngIf="active == 'meetings'">meeting list:</div>
-
-
-<hr>
-<app-web></app-web>
+  <meetings *ngIf="active =='meetings'"></meetings>
+  <members [hidden]="active!='members'"></members>
+  <topics *ngIf="active=='topics'"></topics>
+  <div [hidden]="active!=''" style="margin-top: 25px">
+    <h2>
+      {{title}} (originally <i>'Meetricks'</i>) has been written as an ongoing
+      assignment, during the 2k21-2k22 Angular course.
+    </h2>
+    <p>Its current shape has been based heavily on Maarten Van Hengel's work.</p>
+    <button (click)="active='home'">ENTER</button>
+  </div>
+<start (naarBoven)="go($event)" [hidden]="active!='home'"></start>
+    </div>
+    <page-footer></page-footer>
+<!-- 
+    <hr>
+    <menu (active)="activate($event)"></menu>
+    <div id="welcome" *ngIf="active == 'welcome'">welcome!</div>
+    <div id="members" *ngIf="active == 'members'">member list:</div>
+    <div id="meetings" *ngIf="active == 'meetings'">meeting list:</div>
+    <hr>
+-->
+<!--
+    <app-web></app-web>
+-->

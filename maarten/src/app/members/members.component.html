@@ -1,0 +1,126 @@
+<!--<div class="divContent">
+    <table id="setOrderTable">
+        <tr>
+            <td id="setOrder" >
+                <div class="tooltip">
+                    zoek:
+                <input type="text" (input)="search(searchInput.value)" #searchInput>
+                    <span class="tooltiptext">zoek op nummer of naam</span>
+                  </div>
+            </td>               
+        </tr>
+    </table>
+<div class="addContent" >
+    <table class="addTable" >
+        <tr>
+            <td colspan="2">ADD MEMBER</td>
+        </tr>
+        <tr>
+            <td>
+                NUMMER:
+            </td>    
+            <td>
+                <input type="text" #inputNumber>
+            </td>
+        </tr>
+        <tr>
+            <td>NAAM:</td>
+            <td><input type="text" #inputName></td>
+        </tr>
+        <tr>
+         <td colspan="2"><button (click)="addTopic(inputNumber.value, inputName.value)">add</button></td>
+        </tr>
+    </table>
+</div>
+<div class="content">
+    <table class="topicsTable">
+        <tr>
+            <td>
+                <table>
+                    <tr class="headTable">
+                        <td>NUMMER</td>
+                        <td>NAAM</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr *ngFor = "let i of showList" (click)=showInfo(membersList[i].number)>
+            <member  [memberName]='membersList[i].name'[memberNumber]='membersList[i].number'></member>
+        </tr>
+    </table>
+</div>
+<div class="pop-outer" [hidden]="showMoreHidden">
+    <div class="pop-inner">
+        <button class="closeBtn" (click) = "closeFunction()">X</button>
+        {{showInfoString}}
+    </div>
+</div>
+  -->
+
+<div class="navigation">
+    <p>DASHBOARD</p>
+    <hr>
+    <ul>
+        <li class="bigLinks" ><a (click)="showMembers()">Alle deelnemers</a></li>
+        <li class="bigLinks" ><a (click)="showAdd()">ADD deelnemer</a></li>
+        <li class="bigLinks"><a (click)="showSearch()">zoek:</a></li>
+        <!-- <li id="myLinks"><button id="btnShowMore" (click)=openLinks()>=</button> </li> -->
+    </ul>
+</div>
+<div class="contentDiv">
+    <p>{{visuable}}</p>
+    <hr>
+    <div class="content">
+        <table class="membersTable" [hidden]=memberHidden>
+            <tr>
+                <td>
+                    <table>
+                        <tr class="headTable">
+                            <td>NUMMER</td>
+                            <td>NAAM</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr *ngFor = "let member of membersList" (click)=showInfo(member.number)>
+                <member  [memberName]='member.name'[memberNumber]='member.number'></member>
+            </tr>
+        </table>
+        <table class="addTable" [hidden]=addHidden>
+            <tr>
+                <td colspan="2">ADD MEMBER</td>
+            </tr>
+            <tr>
+                <td>
+                    NUMMER:
+                </td>    
+                <td>
+                    <input type="text" #inputNumber>
+                </td>
+            </tr>
+            <tr>
+                <td>NAAM:</td>
+                <td><input type="text" #inputName></td>
+            </tr>
+            <tr>
+             <td colspan="2"><button (click)="addTopic(inputNumber.value, inputName.value)">add</button></td>
+            </tr>
+        </table>
+        <table class="searchTable" [hidden]=searchHidden>
+            <tr>
+                <td><input type="text" #input (input)=searchTopic(input.value)></td>
+            </tr>
+            <tr>
+                <table class="searchTableHead">
+                    <tr class="headTable">
+                        <td >NAAM:</td>
+                        <td>KLEUR:</td>
+                    </tr>
+                </table>
+            </tr>
+            <tr *ngFor = "let i of showList">
+                <member  [memberName]='membersList[i].name'[memberNumber]='membersList[i].number'></member>
+            </tr>
+        </table>
+    </div>
+</div>    

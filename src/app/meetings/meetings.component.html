@@ -1,4 +1,314 @@
-<table border="1">
+<!-- <div class="divContent">
+<table id="setOrderTable">
+    <tr>
+        <td id="setOrder" >
+            <select (change)="changeOrder(selectOption.value)" #selectOption>
+                <option>alles</option>
+                <option>naam</option>
+                <option>topic</option>
+            </select>
+            <select class="selectBy" [hidden]="Ordervisibility" (change)="order(selectName.value)" #selectName>
+                <option *ngFor="let member of membersList">{{member.name}} </option>
+            </select>
+            <select class="selectBy"  [hidden]="topicVisibility" (change)="topic(selectTopic.value)" #selectTopic>
+                <option *ngFor="let topic of topicList">{{topic.name}} </option>
+            </select>
+            <div class="aantal" [hidden]="everythinVisibility">aantal: {{meetingList.length}}</div>
+            <div class="aantal" [hidden]="Ordervisibility">aantal: {{orderArray.length}}</div>
+            <div class="aantal" [hidden]="topicVisibility">aantal: {{topicArray.length}}</div>
+        </td>               
+    </tr>
+</table>
+<div id="table-wrapper">
+    <div id="table-scroll">
+      <table class="content">
+          <thead>
+            <tr class="headTabe">
+                <td>Datum:</td>
+                <td>Naam:</td>
+                <td class="bigTable">Topics:</td>
+                <td class="bigTable">Deelnemers:</td>
+                <td class="bigTable" id="commentary">Commentaar:</td>
+                <td class="bigTable">Edit:</td>
+                <td class="smallTable">See more</td>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor= "let meeting of meetingList" [hidden]= "everythinVisibility">
+        <td> {{meeting.date}}</td>
+        <td>{{meeting.name}}</td>
+        <td class="bigTable">{{meeting.topics}}</td>
+        <td class="bigTable">
+            
+            <div *ngFor="let attendee of meeting.attendees"> 
+               {{attendee}}
+            </div>
+        </td>
+        <td class="bigTable" id="commentary" >
+            {{meeting.commentary}} 
+        </td>
+        <td class="bigTable" id="editBtn" >
+            <button (click)="editThis(meeting.date, meeting.name)">add commentary</button>
+        </td>
+        <td class="smallTable" id="editBtn" >
+            <button (click)="seeMore(meeting.date, meeting.name)">see more</button>
+        </td>
+    </tr>
+            <tr *ngFor= "let i of orderArray" [hidden]= "Ordervisibility">
+                <td> {{meetingList[i].date}}</td>
+                <td>{{meetingList[i].name}}</td>
+                <td class="bigTable">{{meetingList[i].topics}}</td>
+                <td class="bigTable">
+                    
+                    <div *ngFor="let attendee of meetingList[i].attendees"> 
+                       {{attendee}}
+                    </div>
+                </td>
+                <td class="bigTable" id="commentary">
+                    {{meetingList[i].commentary}} 
+                </td>
+                <td class="bigTable" id="editBtn" >
+                    <button (click)="editThis(meetingList[i].date, meetingList[i].name)">add commentary</button>
+                </td>
+                <td class="smallTable" id="editBtn" >
+                    <button (click)="seeMore(meetingList[i].date,meetingList[i].name )">see more</button>
+                </td>
+            </tr>
+            <tr *ngFor= "let i of topicArray" [hidden]= "topicVisibility">
+                <td> {{meetingList[i].date}}</td>
+                <td>{{meetingList[i].name}}</td>
+                <td class="bigTable">{{meetingList[i].topics}}</td>
+                <td class="bigTable">
+                    
+                    <div *ngFor="let attendee of meetingList[i].attendees"> 
+                       {{attendee}}
+                    </div>
+                </td>
+                <td class="bigTable" id="commentary">
+                    {{meetingList[i].commentary}} 
+                </td>
+                <td class="bigTable" id="editBtn" >
+                    <button (click)="editThis(meetingList[i].date, meetingList[i].name)">add commentary</button>
+                </td>
+                <td class="smallTable" id="editBtn" >
+                    <button (click)="seeMore(meetingList[i].date, meetingList[i].name)">see more</button>
+                </td>
+            </tr> 
+            <tr class="smallTable">
+                <td  colspan="3">
+                    <button id="addVergadering" (click)="addSmall()">ADD vergadering</button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="betweenDiv"></div>-->
+<div class="pop-outer" [hidden]="showMoreHidden">
+    <div class="pop-inner">
+        <button class="closeBtn" (click)="closeFunction()">X</button>
+        <table class="showMoreTable">
+            <tr>
+                <td class="showMoreTableLeft">Datum:</td>
+                <td>{{meetingList[seeMoreNumber].date}}</td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Naam:</td>
+                <td>{{meetingList[seeMoreNumber].name}}</td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Topic:</td>
+                <td>{{meetingList[seeMoreNumber].topics}}</td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Deelnemers:</td>
+                <td>
+                    <div *ngFor="let attendee of meetingList[seeMoreNumber].attendees">
+                        {{attendee}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Commentaar:</td>
+                <td>{{meetingList[seeMoreNumber].commentary}}</td>
+            </tr>
+            <tr>
+
+                <td colspan="2">
+                    <button (click)="editThis(meetingList[seeMoreNumber].date, meetingList[seeMoreNumber].name)">voeg
+                        commentaar toe</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="pop-outer" [hidden]="addHidden">
+    <div class="pop-inner">
+        <button class="closeBtn" (click)="closeAddSmall()">X</button>
+        <table class="showMoreTable">
+            <tr>
+                <td class="showMoreTableLeft">Datum:</td>
+                <td><input type="date" #inputDateSmall></td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Naam:</td>
+                <td><input type="text" #inputNameSmall></td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Topic:</td>
+                <td>
+                    <select #inputTopicSmall>
+                        <option *ngFor="let topic of topicList" [value]="topic.name">{{topic.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Deelnemers:</td>
+                <td>
+                    <select multiple #inputMembersSmall>
+                        <option *ngFor="let member of membersList" [value]="member.name">{{member.name}}
+
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Commentaar:</td>
+                <td class="commentary"><input type="text" #inputCommantarySmall></td>
+            </tr>
+            <tr>
+                <td class="showMoreTableLeft">Voeg toe:</td>
+                <td>
+                    <button
+                        (click)="addMeeting(inputDateSmall.value, inputNameSmall.value, inputTopic, inputMembersSmall.selectedOptions , 'Algemeen commentaar: '+ inputCommantarySmall.value +'\n')">voeg
+                        toe</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="navigation" [hidden]=navigationHidden>
+    <p>DASHBOARD</p>
+    <hr>
+    <ul>
+        <li class="bigLinks"><a (click)="showAll()">Alle vergaderingen</a></li>
+        <li class="bigLinks"><a (click)="showSearchMeeting()">zoek vergadering</a></li>
+        <li class="bigLinks"><a (click)="showAddMeeting()">voeg vergadering toe</a></li>
+    </ul>
+</div>
+<div class="contentDiv">
+    <div id="notifications">
+        <p>{{visuable}}</p>
+        <hr>
+        <table class="contentTable" [hidden]="tableHidden">
+            <tr>
+                <td><input type="text" #input (input)=searchMeeting(input.value) [hidden]=searchHidden></td>
+            </tr>
+            <tr *ngFor="let i of showList" (click)="seeMore(meetingList[i].date, meetingList[i].name)">
+                <td>
+                    <p class="title">{{meetingList[i].name}}</p>
+                    <p class="data">Vergadering: {{meetingList[i].date}}</p>
+                    <label>Deelnemers:</label>
+                    <p class="participents" *ngFor="let attendee of meetingList[i].attendees">
+                        {{attendee}}
+                    </p>
+                    <br>
+                    <label class="topicLabel">Topics:</label>
+                    <p class="topic">{{meetingList[i].topics}}</p>
+                    <!-- <div class="commentary">
+                        {{meeting.commentary}}
+                     </div> -->
+                    <hr class="dotted">
+                </td>
+            </tr>
+        </table>
+        <!-- <div>
+            <p>
+                datum: 
+                <input type="text" id="date">
+            </p>
+            <p>
+                naam: 
+                <input type="text" id="name">
+            </p>
+            <p>
+                topics: 
+                <select #inputTopic>
+                    <option *ngFor="let topic of topicList" [value]="topic.name" >{{topic.name}}</option>
+                </select>
+            </p>
+            <p>
+                topics: 
+                <select multiple #inputMembers>
+                    <option *ngFor="let member of membersList" [value]="member.name" >{{member.name}}</option>
+                </select>
+            </p>
+             
+        </div> -->
+        <table class="addTable  bigTable" [hidden]=addTableHidden>
+            <tr>
+                <td>
+                    <table class="addtableRow">
+                        <tr>
+                            <td class="TableLabel">Datum:</td>
+                            <td class="TableInput"><input type="date" #inputDate></td>
+                        </tr>
+                    </table>
+                <td>
+                    <table class="addtableRow">
+                        <tr>
+                            <td class="TableLabel">Naam:</td>
+                            <td class="TableInput"><input type="text" #inputName></td>
+                        </tr>
+                    </table>
+            </tr>
+            <tr>
+                <td>
+                    <table class="addtableRow">
+                        <tr>
+                            <td class="TableLabel">Topics:</td>
+                            <td class="TableInput"> <select #inputTopic>
+                                    <option *ngFor="let topic of topicList" [value]="topic.name">{{topic.name}}</option>
+                                </select></td>
+                        </tr>
+                    </table>
+                </td>
+                <td rowspan="2">
+                    <table class="addtableRow">
+                        <tr>
+                            <td class="TableLabel" style="vertical-align: top;">Deelnemers:</td>
+                            <td class="TableInput"> <select multiple #inputMembers>
+                                    <option *ngFor="let member of membersList" [value]="member.name">{{member.name}}
+                                    </option>
+                                </select></td>
+                        </tr>
+                    </table>
+            </tr>
+            <tr>
+                <td>
+                    <table class="addtableRow">
+                        <tr>
+                            <td class="TableLabel">Commentaar:</td>
+                            <td class="TableInput"><input type="text" #inputCommantary></td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button
+                        (click)="addMeeting(inputDate.value, inputName.value, inputTopic, inputMembers.selectedOptions , 'Algemeen commentaar: '+ inputCommantary.value +'\n')">ADD</button>
+                </td>
+            </tr>
+
+            <table>
+            </table>
+        </table>
+        <button class="smallTable" id="addVergadering" (click)="addSmall()">ADD vergadering</button>
+
+<!-- <table border="1">
     <tr>
         <td>Datum:</td>
         <td>Naam:</td>
@@ -14,4 +324,4 @@
         </td>
 
     </tr>
-</table>
+</table> -->

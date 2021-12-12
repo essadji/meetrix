@@ -1,10 +1,29 @@
-
-    <ul>
-        <li class="title"> Meetrix </li>
-     <li><a  [class.active]="membersHidden" id="members" (click)=openMembers()>Members</a></li>
-     <li><a [class.active]="topicsHidden" id="topics" (click)= openTopics()>Topics</a></li>
-     <li><a [class.active]="meetingsHidden" id="meetings" (click) = openMeetings()>Vergaderingen</a></li>
-     
-    </ul>
-  
- 
+<ul>
+    <li class="title" (click)="openPage('')">
+        Meetrix{{active?'&nbsp;-&nbsp;'+active:''}}
+    </li>
+    <li class="bigLinks">
+        <a [class.active]="active == 'members'" id="members" (click)="openPage('members')">members</a>
+    </li>
+    <li class="bigLinks">
+        <a [class.active]="active == 'topics'" id="topics" (click)="openPage('topics')">topics</a>
+    </li>
+    <li class="bigLinks">
+        <a [class.active]="active=='meetings'" id="meetings" (click)="openPage('meetings')">meetings</a>
+    </li>
+    <li class="bigLinks">
+        <a [class.active]="active=='home'" id="home" (click)="openPage('home')">home</a>
+    </li>
+    <!-- <li id="myLinks"><button id="btnShowMore" (click)=openLinks()>=</button> </li> -->
+</ul>
+<!-- <div id="links" [hidden]="myLinksVisuability">
+    <a [class.active]="membersHidden" id="members" (click)=openMembers()>Members</a><br>
+    <a [class.active]="topicsHidden" id="topics" (click)=openTopics()>Topics</a><br>
+    <a [class.active]="meetingsHidden" id="meetings" (click)=openMeetings()>Vergaderingen</a>
+</div> -->
+<!--     
+<div id="page">
+    {{page}}
+    <hr>
+</div>
+ -->

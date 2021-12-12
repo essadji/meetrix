@@ -1,0 +1,77 @@
+@import "../../styles.scss";
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: $ucll-red;
+}
+li {
+  float: right;
+  display: inline;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: large;
+}
+li a.active {
+  color: $ucll-sky;
+  font-weight: bold;
+}
+
+li a:hover {
+  border: 5px solid $ucll-blue;
+  border-radius: 15px;
+}
+li.title {
+  font-size: 200%;
+  font-weight: bold;
+  color: $ucll-blue;
+  padding-left: 10px;
+  float: left;
+}
+.bigLinks {
+  display: none;
+}
+#btnShowMore {
+  color: white;
+  background-color: $ucll-blue;
+  font-size: x-large;
+  margin: 5px;
+  height: 30px;
+  width: 70px;
+  background-image: url("/src/images/Hamburger_icon.png");
+  background-attachment: fixed;
+}
+#links {
+  float: right;
+  background-color: #2b2727;
+  border: 5px solid $ucll-blue;
+  color: $ucll-sky;
+  padding: 5px;
+  z-index: 1;
+}
+a {
+  text-align: right;
+  color: white;
+  text-decoration: none;
+}
+@media only screen and (min-width: 430px) {
+  .bigLinks {
+    display: block;
+  }
+  #myLinks {
+    display: none;
+  }
+  #links {
+    display: none;
+  }
+}
+#page {
+  padding: 5px;
+}

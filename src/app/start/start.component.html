@@ -1,0 +1,144 @@
+
+<!-- 
+<table>
+    <tr>
+        <td colspan="2">
+            <h1>MEETRIX</h1>
+            <h4>we make an online meetings easier</h4>
+        </td>
+    </tr>
+    <tr>
+        <td>text</td>
+        <td class="bigTable">
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            Deelnemers:
+                        </td>
+                    </tr>
+                </thead>
+                <tr *ngFor="let members of randomMembers" >
+                    <td>{{membersService.memberList[members].name}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button (click)="openMembers()">alle leden</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="meetingsTable">
+                <thead>
+                    <tr>
+                        <td colspan="5">
+                            Laatste meeting:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Datum:</td>
+                        <td>Naam:</td>
+                        <td class="mediumTable">Topics:</td>
+                        <td class="mediumTable">Deelnemers:</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>{{this.meeting[this.lastMeeting].date}}</td>
+                    <td>{{this.meeting[this.lastMeeting].name}}:</td>
+                    <td class="mediumTable">{{this.meeting[this.lastMeeting].topics}}</td>
+                     <td class="mediumTable">
+                        <div *ngFor="let attendee of this.meeting[this.lastMeeting].attendees"> 
+                            {{attendee}}
+                         </div>
+                     </td>                     
+                </tr>
+                <tr class="mediumTable">
+                    <td colspan="4" id="commentary">{{this.meeting[this.lastMeeting].commentary}}:</td>
+                </tr>
+            </table>
+        </td>
+        <td class="bigTable">
+            <table class="test">
+                <thead>
+                    <tr>
+                        <td>
+                            Topics:
+                        </td>
+                    </tr>
+                </thead>
+                <tr *ngFor="let topics of randomTopics">
+                    <td>{{topicsService.topicList[topics].name}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <button (click)="openTopics()">alle topics</button>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table> -->
+
+<!-- <div class="title">
+    <h1>MEETRIX</h1>
+    <h4>we make an online meetings easier</h4>
+</div> -->
+
+<div class="navigation">
+    <p>DASHBOARD</p>
+    <hr>
+    <ul>
+        <li class="bigLinks" ><a (click)="showNotifications()">Meldingen</a></li>
+        <li class="bigLinks" ><a (click)="emptyCommentary()">Leeg comentaar</a></li>
+        <li class="bigLinks"><a >Algemene Berichten</a></li>
+        <!-- <li id="myLinks"><button id="btnShowMore" (click)=openLinks()>=</button> </li> -->
+    </ul>
+</div>
+<div class="contentDiv">
+    <div id="notifications" [hidden]="notificationsHidden" >
+        <p>MELDINGEN</p>
+        <hr>
+        <table>
+            <tr>
+                <td >
+                    <p class="title">{{notificationListTile[amount-1]}}</p>
+                    <p class="data">{{notificationListType[amount-1]}}  {{notificationListDate[amount-1]}}</p>
+                    <p class="comment">{{notificationListComment[amount-1]}}</p>
+                    <hr class="dotted">
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <p class="title">{{notificationListTile[amount-2]}}</p>
+                    <p class="data">{{notificationListType[1]}}  {{notificationListDate[amount-2]}}</p>
+                    <p class="comment">{{notificationListComment[amount-2]}}</p>
+                    <hr class="dotted">
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <p class="title">{{notificationListTile[amount-3]}}</p>
+                    <p class="data">{{notificationListType[2]}}  {{notificationListDate[amount-3]}}</p>
+                    <p class="comment">{{notificationListComment[amount-3]}}</p>
+                    <hr class="dotted">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div [hidden]="emptyHidden">
+        <p>Lege comentaren</p>
+        <hr>
+        <table>
+            <tr>
+                <td *ngFor ="let i of emptyCommentaryList">
+                    {{meeting[i].name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+</div>
+

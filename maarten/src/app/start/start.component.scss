@@ -1,0 +1,93 @@
+// body *{
+//     margin: 0px;
+// }
+h1{
+    margin: 0px;
+    font-style: lu;
+}
+h4{
+    margin-top: -10px;
+    margin-left: 10px;
+    color: green;
+}
+  .navigation{
+    // float: left;
+    margin-left: 20px;
+    padding: 5px 0px 10px 10px;
+    width: 90%;
+    background-color: rgb(250, 250, 250);
+  }
+  .navigation ul li a {
+    font-size: 16px;
+    font-weight: 400;
+    border-left: 3px solid rgb(250, 250, 250);
+  }
+  .navigation ul li{
+    list-style: none;
+  }
+  .navigation ul li a{
+    margin-left: -30px;
+    padding-left: 2px;
+  }
+  .navigation>ul>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 0px;
+  }
+  .navigation ul li:hover a {
+    background-color: #cdf7d8;
+    border-left: 3px solid green;
+  }
+  p{
+    color: green;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .contentDiv{
+    // float: right;
+    margin-left: 20px;
+    padding: -5px 10px 10px 10px;
+    width: 90%;
+    background-color: rgb(250, 250, 250);
+  }
+  @media (min-width: 735px) {
+    .contentDiv{
+      float: right;
+      width: 70%;
+    }
+    .navigation{
+      float: left;
+      width: 20%;
+    }
+    p{
+      margin-top: 15px;
+    }
+  }
+  
+  @media (min-width: 1435px) {
+    .contentDiv{
+      width: 75%;
+    }
+  }
+  .data{
+    color: gray;
+    font-size: 14px;
+    margin-left: 40px;
+    margin-top: -15px;
+  }
+  .comment{
+    color: black;
+    margin-top: -10px;
+    margin-left: 10px;
+  }
+  .dotted{
+    margin-top: -5px;
+    border:none;
+    border-top:1px dashed green;
+    color:#fff;
+    background-color:#fff;
+    height:1px;
+    width:80%;
+  }
+  

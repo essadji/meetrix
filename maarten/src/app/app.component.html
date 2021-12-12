@@ -1,0 +1,19 @@
+<!-- <<<<<<< Maarten -->
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        
+    </head>
+  <body>
+    <app-navbar (naarBoven)="leesIn($event)"></app-navbar>
+    <div class="container">
+	  <meetings [hidden]= "meetingsHidden"></meetings>
+    <topics [hidden] ="topicsHidden"></topics>
+    <members [hidden]="membersHidden" ></members>
+    <start (naarBoven)="leesIn($event)" [hidden]="startHidden"></start>
+    </div>
+    <page-footer></page-footer>
+  </body>
+</html>
+
+

@@ -1,0 +1,70 @@
+
+<div class="navigation">
+    <p>DASHBOARD</p>
+    <hr>
+    <ul>
+        <li class="bigLinks" ><a (click)="showTopics()">Alle Topics</a></li>
+        <li class="bigLinks" ><a (click)="showAdd()">ADD topic</a></li>
+        <li class="bigLinks"><a (click)="search()">zoek:</a></li>
+        <!-- <li id="myLinks"><button id="btnShowMore" (click)=openLinks()>=</button> </li> -->
+    </ul>
+</div>
+<div class="contentDiv">
+    <p>{{visuable}}</p>
+    <hr>
+    <table class="topicsTable" [hidden]=topicHidden>
+        <tr>
+            <td>
+                <table>
+                    <tr class="headTable">
+                        <td >NAAM:</td>
+                        <td>KLEUR:</td>
+                        <td>AANTAL DEELNAMES:</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr *ngFor = "let topic of topicsService.topicList" >
+            <topic [topicName]='topic.name' [topicColor]='topic.color' [topicAmount]="topic.amount"></topic>
+        </tr>
+    </table>
+    <table class="addTable" [hidden]="addHidden">
+        <tr>
+            <td colspan="2">ADD TOPIC</td>
+        </tr>
+        <tr>
+            <td>
+                NAAM:
+            </td>    
+            <td>
+                <input type="text" #inputTopic>
+            </td>
+        </tr>
+        <tr>
+            <td>KLEUR:</td>
+            <td><input type="text" #inputColor></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button (click)="addTopic(inputTopic.value, inputColor.value)">add</button></td>
+        </tr>
+    </table>
+    <table class="searchTable" [hidden]=searchHidden>
+        <tr>
+            <td><input type="text" #input (input)=searchTopic(input.value)></td>
+        </tr>
+        <tr>
+            <table class="searchTableHead">
+                <tr class="headTable">
+                    <td >NAAM:</td>
+                    <td>KLEUR:</td>
+                    <td>AANTAL DEELNAMES:</td>
+                </tr>
+            </table>
+        </tr>
+        <tr *ngFor = "let i of showList">
+            <topic  [topicName]='topicsList[i].name'[topicColor]='topicsList[i].color' [topicAmount]="topicsList[i].amount"></topic>
+        </tr>
+    </table>
+</div>
+
+
