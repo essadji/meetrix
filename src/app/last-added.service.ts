@@ -9,8 +9,9 @@ export class LastAddedService {
   constructor() { }
 
   lastAddedList:NotificationInterface[]=[
-    {type:"meeting", number: 6},
+    {type:"meeting", number: 5},
     {type:"topic", number: 1},
     {type:"member", number: 1}
   ];
+  // OPGELET: wanneer 'number' groter is dan het aantal meetings, geeft dit (silent) errors!
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { meeting } from '../meeting-interface';
-// MAARTEN ->
 import { LastAddedService } from '../last-added.service';
 import { MeetingServiceService } from '../meeting-service.service';
 import { MembersInfoInterface } from '../members-info-interface';
@@ -9,7 +8,6 @@ import { MembersServiceService } from '../members-service.service';
 import { NotificationInterface } from '../notification-interface';
 import { TopicInterface } from '../topic-interface';
 import { TopicsServiceService } from '../topics-service.service';
-// <-- MAARTEN
 // import { meeting } from '../Omeeting';
 
 @Component({
@@ -42,6 +40,7 @@ export class MeetingsComponent implements OnInit {
   }
 
   addMeeting(date: string, name: string, topics: any, attendees: any, commentary: string) {
+    console.log([...arguments])
     this.addHidden = true;
     if (date != "" && name != "" && topics.length > 0 && attendees.length > 0 && commentary != "") {
       console.log(this.lastAddedList);
@@ -76,9 +75,10 @@ export class MeetingsComponent implements OnInit {
   txt: string = "";
 
   editThis(x: string, name: string) {
-    console.log(x);
+    // console.log("EDIT: "+x);
     for (let i = 0; i < this.meetingList.length; i++) {
       if (this.meetingList[i].date == x && this.meetingList[i].name == name) {
+      console.log (this.meetingList[i].date +" =? "+"x"+" && " +this.meetingList[i].name+" =? " + name)
         this.existingCommentary = this.meetingList[i].commentary;
         // this.meetingService.meetingList[i].commentary = z;
         this.person = prompt("Geef je naam:");

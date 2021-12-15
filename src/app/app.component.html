@@ -1,4 +1,4 @@
-<app-navbar (naarBoven)="go($event)" [active]="active"></app-navbar>
+<navbar (naarBoven)="go($event)" [active]="active"></navbar>
 <div class="container">
 
   <meetings *ngIf="active =='meetings'"></meetings>
@@ -9,7 +9,7 @@
       {{title}} (originally <i>'Meetricks'</i>) has been written as an ongoing
       assignment, during the 2k21-2k22 Angular course.
     </h2>
-    <p>Its current shape has been based heavily on Maarten Van Hengel's work.</p>
+    <p>The current code incarnation is heavily based on Maarten Van Hengel's work. Bless his industrious soul!</p>
     <button (click)="active='home'">ENTER</button>
   </div>
 <start (naarBoven)="go($event)" [hidden]="active!='home'"></start>

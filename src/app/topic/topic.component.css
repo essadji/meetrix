@@ -1,4 +1,11 @@
-
+table{
+    width: 100%;
+}
 td{
-    width: 200px;
+    width: 43%;
+    
+}
+td:nth-child(3){
+    width: 12%;
+    text-align: right;
 }
